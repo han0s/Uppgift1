@@ -1,15 +1,24 @@
+import java.util.Random;
+
 public class Main {
 
-    public static void main(String[] args) {
-	    int x = 0;
-        boolean working = true;
 
-        if (working && x == 0){
-            System.out.println("WORKINGUUUUUUU");
+    Main(){
+        int x = (int)(Math.random()*10);
+
+        if (x<5){
+            System.out.println("UNDER FIVEUUUU");
+            System.out.println(x);
         }
         else {
-            System.out.println("NOT WORKINGUUUUUUU!");
+            System.out.println("SOMETHING ELSUUUUU");
+            System.out.println(x);
+
         }
+    }
+
+    public static void main(String[] args) {
+	    new Main();
 
     }
 }
