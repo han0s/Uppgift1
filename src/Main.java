@@ -54,7 +54,7 @@ public class Main extends JFrame implements ActionListener {
         p3.add(test6);
 
 
-
+        test1.addActionListener(this);
 
 
 
@@ -76,6 +76,9 @@ public class Main extends JFrame implements ActionListener {
 
     @Override
      public void actionPerformed(ActionEvent e){
+        if (e.getSource() == test1){
+            new image();
+        }
 
 
     }
