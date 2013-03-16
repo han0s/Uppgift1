@@ -9,19 +9,31 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * To change this template use File | Settings | File Templates.
  */
 public class image {
+    String adr;
 
     image(){
         JFileChooser chooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif");
-
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & PNG Images", "jpg", "png");
+        ImageIcon lol = null;
         chooser.setFileFilter(filter);
 
         int returnVal = chooser.showOpenDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION){
             System.out.println("you chose to open this file: "+ chooser.getSelectedFile().getName());
+
+            adr = chooser.getSelectedFile().getPath();
+
         }
 
 
+
+    }
+
+    public ImageIcon getpic(){
+
+        ImageIcon temp = new ImageIcon(adr);
+
+        return temp;
     }
 
 }

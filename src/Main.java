@@ -7,54 +7,50 @@ import java.util.Random;
 
 public class Main extends JFrame implements ActionListener {
 
-    JButton test1 = new JButton("test1");
-    JButton test2 = new JButton("test2");
-    JButton test3 = new JButton("test3");
-    JButton test4 = new JButton("test4");
-    JButton test5 = new JButton("test5");
-    JButton test6 = new JButton("test6");
+    JButton load = new JButton("load");
 
-    JPanel p1 = new JPanel();
+
+    JPanel p1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
     JPanel p2 = new JPanel();
-    JPanel p3 = new JPanel();
+    JLabel pic_source = new JLabel();
 
+    JLabel actual_pic = new JLabel();
+    JScrollPane picPanel = new JScrollPane(actual_pic);
+    ImageIcon pict;
 
     Main(){
-        setPreferredSize(new Dimension(300,300));
+        setPreferredSize(new Dimension(500,500));
 
         Container contentPane = this.getContentPane();
         contentPane.setLayout(new BoxLayout(contentPane,BoxLayout.Y_AXIS));
 
+        Box b1 = new Box(BoxLayout.X_AXIS);
+        b1.setAlignmentX(LEFT_ALIGNMENT);
+
+
 
 //        setLayout(new FlowLayout());
         setVisible(true);
-        setResizable(false);
-
-        p1.setPreferredSize(new Dimension(300,100));
-        p2.setPreferredSize(new Dimension(300,100));
-        p3.setPreferredSize(new Dimension(300,100));
-
-        p1.setBackground(Color.GREEN);
-        p2.setBackground(Color.BLUE);
-        p3.setBackground(Color.CYAN);
-        contentPane.setBackground(Color.BLACK);
+        setResizable(true);
 
 
 
 
-        add(p1);
-        add(p2);
-        add(p3);
 
-        p1.add(test1);
-        p2.add(test2);
-        p2.add(test3);
-        p3.add(test4);
-        p3.add(test5);
-        p3.add(test6);
+//        contentPane.setBackground(Color.BLACK);
 
 
-        test1.addActionListener(this);
+        add(b1);
+
+
+        b1.add(load);
+        b1.add(pic_source);
+
+
+        add(picPanel);
+
+
+        load.addActionListener(this);
 
 
 
@@ -76,8 +72,12 @@ public class Main extends JFrame implements ActionListener {
 
     @Override
      public void actionPerformed(ActionEvent e){
-        if (e.getSource() == test1){
-            new image();
+        if (e.getSource() == load){
+            image img = new image();
+            pict = img.getpic();
+            actual_pic.setIcon(pict);
+            pic_source.setText(img.adr);
+
         }
 
 
