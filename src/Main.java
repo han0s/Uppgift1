@@ -10,6 +10,9 @@ public class Main extends JFrame implements ActionListener {
     JButton load = new JButton("load");
 
 
+
+    String[] recent_pic_source = new String[5];
+    JComboBox recent_pics = new JComboBox(recent_pic_source);
     JPanel p1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
     JPanel p2 = new JPanel();
     JLabel pic_source = new JLabel();
@@ -45,6 +48,7 @@ public class Main extends JFrame implements ActionListener {
 
         b1.add(load);
         b1.add(pic_source);
+//        b1.add(recent_pics);
 
 
         add(picPanel);
@@ -77,6 +81,7 @@ public class Main extends JFrame implements ActionListener {
             pict = img.getpic();
             actual_pic.setIcon(pict);
             pic_source.setText(img.adr);
+
 
         }
 
