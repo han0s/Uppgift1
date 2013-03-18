@@ -2,13 +2,7 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.util.Arrays;
 
-/**
- * Created with IntelliJ IDEA.
- * User: hannes
- * Date: 15.3.2013
- * Time: 22.20
- * To change this template use File | Settings | File Templates.
- */
+
 public class image {
     String adr;
     String[] recent = new String[5];
@@ -49,6 +43,7 @@ public class image {
 
         }
 
+
     }
 
     public ImageIcon getpic(){
@@ -65,6 +60,7 @@ public class image {
             n = 0;
             recent[n] = temp;
             n++;
+
         }
         else {
             recent[n] = temp;

@@ -78,6 +78,7 @@ public class Main extends JFrame implements ActionListener {
      public void actionPerformed(ActionEvent e){
         if (e.getSource() == load){
             image img = new image();
+            img.loadImage();
             pict = img.getpic();
             actual_pic.setIcon(pict);
             pic_source.setText(img.adr);

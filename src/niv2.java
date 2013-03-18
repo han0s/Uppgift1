@@ -1,14 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Arrays;
 
-/**
- * Created with IntelliJ IDEA.
- * User: hannes
- * Date: 17.3.2013
- * Time: 16.43
- * To change this template use File | Settings | File Templates.
- */
+
 public class niv2 extends JFrame implements ActionListener {
 
 
@@ -18,7 +13,7 @@ public class niv2 extends JFrame implements ActionListener {
 
 
     String[] recent_pic_source = new String[5];
-    JComboBox recent_pics = new JComboBox(recent_pic_source);
+    JComboBox recent_pics = new JComboBox();
     JPanel p1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
     JPanel p2 = new JPanel();
     JLabel pic_source = new JLabel();
@@ -59,6 +54,10 @@ public class niv2 extends JFrame implements ActionListener {
         img = new image();
 
         button.addActionListener(this);
+        recent_pics.addActionListener(this);
+
+
+
         setVisible(true);
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -84,13 +83,15 @@ public class niv2 extends JFrame implements ActionListener {
     }
 
     public void updateRecent(){
-        if (recent_pic_source.equals(img.recent)){
-            System.out.println("nothing");
-        }
-        else {
+
+        for (String s: recent_pic_source){
             recent_pic_source = img.recent;
         }
+        for (String s: recent_pic_source){
+            System.out.println(s);
+        }
 
+        recent_pics.addItem(img.adr);
 
 
 
@@ -102,9 +103,9 @@ public class niv2 extends JFrame implements ActionListener {
         if (e.getSource() == button){
             load();
 
-
+        }
+        if (e.getSource() == recent_pics){
 
         }
-
     }
 }
