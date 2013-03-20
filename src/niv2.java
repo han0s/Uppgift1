@@ -8,7 +8,7 @@ public class niv2 extends JFrame implements ActionListener {
 
 
     JButton button;
-    boolean running = true;
+
 
 
 
@@ -57,7 +57,7 @@ public class niv2 extends JFrame implements ActionListener {
         recent_pics.addActionListener(this);
 
 
-
+        recent_pics.addActionListener(this);
         setVisible(true);
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -71,28 +71,34 @@ public class niv2 extends JFrame implements ActionListener {
 
     public void load(){
         img.loadImage();
-        pict = img.getpic();
+        pict = img.getPic();
         actual_pic.setIcon(pict);
-        pic_source.setText(img.adr);
+        pic_source.setText(img.getFilePath());
 
             updateRecent();
 
+    }
 
-
-
+    void cBoxSelection(){
+        String temp = (String)recent_pics.getSelectedItem();
+        pict = img.selectPic(temp);
+        actual_pic.setIcon(pict);
     }
 
     public void updateRecent(){
 
         for (String s: recent_pic_source){
-            recent_pic_source = img.recent;
+
+            recent_pic_source = img.getRecent();
+
         }
         for (String s: recent_pic_source){
             System.out.println(s);
         }
 
-        recent_pics.addItem(img.adr);
 
+
+        recent_pics.addItem(img.getFilePath());
 
 
     }
@@ -105,7 +111,9 @@ public class niv2 extends JFrame implements ActionListener {
 
         }
         if (e.getSource() == recent_pics){
+            cBoxSelection();
 
         }
+
     }
 }

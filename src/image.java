@@ -4,9 +4,10 @@ import java.util.Arrays;
 
 
 public class image {
-    String adr;
-    String[] recent = new String[5];
-    int n = 0;
+    private String adr;
+    private String[] recent = new String[5];
+    private int fileCount = 0;
+    private ImageIcon temp;
 
     image(){
 /*        JFileChooser chooser = new JFileChooser();
@@ -42,31 +43,49 @@ public class image {
             addToRecent(adr);
 
         }
+        else {
+            System.exit(0);
+        }
 
 
     }
 
-    public ImageIcon getpic(){
+    public ImageIcon getPic(){
 
-        ImageIcon temp = new ImageIcon(adr);
+        temp = new ImageIcon(adr);
 
         return temp;
     }
 
+    public ImageIcon selectPic(String x){
+        temp = new ImageIcon(x);
 
-    void addToRecent(String temp){
+        return temp;
+    }
 
-        if (n > recent.length){
-            n = 0;
-            recent[n] = temp;
-            n++;
+    public String[] getRecent(){
+        return recent;
+
+    }
+
+    public String getFilePath(){
+        return adr;
+    }
+
+
+    void addToRecent(String x){
+
+        if (fileCount >= recent.length){
+            fileCount = 0;
+            recent[fileCount] = x;
+            fileCount++;
 
         }
         else {
-            recent[n] = temp;
-            System.out.println(recent[n]);
+            recent[fileCount] = x;
+            System.out.println(recent[fileCount]);
             System.out.println(Arrays.toString(recent));
-            n++;
+            fileCount++;
         }
 
     }

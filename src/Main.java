@@ -79,9 +79,9 @@ public class Main extends JFrame implements ActionListener {
         if (e.getSource() == load){
             image img = new image();
             img.loadImage();
-            pict = img.getpic();
+            pict = img.getPic();
             actual_pic.setIcon(pict);
-            pic_source.setText(img.adr);
+            pic_source.setText(img.getFilePath());
 
 
         }
